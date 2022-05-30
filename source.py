@@ -32,9 +32,7 @@ def unpack(fileOrPath):
     if is_path(fileOrPath):
         filePaths = get_files_paths(fileOrPath)
         for file in filePaths:
-            if is_zipfile(file):
-                extracting_archive(file)
-            elif is_tarfile(file):
+            if wild_card_match(file):
                 extracting_archive(file)
     else:
         if is_zipfile(fileOrPath):
@@ -45,9 +43,7 @@ def recunpack(fileOrPath):
     if is_path(fileOrPath):
         filePaths = get_files_paths(fileOrPath)
         for file in filePaths:
-            if is_zipfile(file):
-                recunpack(file)
-            elif is_tarfile(file):
+            if wild_card_match(file):
                 recunpack(file)
     else:
         if wild_card_match(fileOrPath):
