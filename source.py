@@ -2,16 +2,10 @@ import os, shutil, fnmatch
 from zipfile import ZipFile, is_zipfile
 from tarfile import TarFile, is_tarfile
 def wild_card_match(name):
-    if fnmatch.fnmatch(name, '*.zip'):
-        return True
-    elif fnmatch.fnmatch(name, '*.tar'):
-        return True
-    elif fnmatch.fnmatch(name, '*.tar.gz'):
-        return True
-    elif fnmatch.fnmatch(name, '*.tar.bz2'):
-        return True
-    elif fnmatch.fnmatch(name, '*.tar.xz'):
-        return True
+    names = ['*.zip', '*.tar', '*.tar.gz', '*.tar.bz2', '*.tar.xz']
+    for n in names:
+        if fnmatch.fnmatch(name, n):
+            return True
 def extracting_archive(filePath):
     shutil.unpack_archive(filePath, make_new_dir(filePath))
 def is_path(tocheck):
