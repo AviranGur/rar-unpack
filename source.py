@@ -46,6 +46,8 @@ def recunpack(fileOrPath):
             for file in filePaths:
                 if wild_card_match(file):
                     recunpack(file)
+                elif is_path(fileOrPath):
+                    recunpack(file)
 def make_new_dir(dirPath):
     dirPath = get_file_path(dirPath)
     try:
