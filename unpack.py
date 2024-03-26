@@ -10,6 +10,8 @@ def main(argv):
     else:
         for path in argv:
             source.unpack(path)
+    
+    print(f"Yay you just unpacked.")
 
 if __name__ == "__main__":
     main(sys.argv[1:])
